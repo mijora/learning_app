@@ -1,0 +1,25 @@
+%h1 Hello world!
+
+= simple_form_for @q, url: countries_path, method: :get do |f|
+  = f.input :title_cont, required: false
+  = f.submit 'Search'
+
+%table.table
+  %tr
+    %td
+      Pavadinimas
+    %td
+      ISO kodas
+    %td
+      Veiksmai
+  - @countries.each do |country|
+    %tr
+      %td
+        = country.title
+      %td
+        = country.iso2
+      %td
+        = link_to 'Peržiūrėti', country_path(country)
+        = link_to 'Redaguoti', edit_country_path(country)
+        = link_to 'Delete', country_path(country), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'Loading...' }
+      
