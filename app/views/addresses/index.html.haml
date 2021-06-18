@@ -1,0 +1,27 @@
+%table.table
+  %tr
+    %td
+      Vardas
+    %td
+      Telefonas
+    %td
+      El. paštas
+    %td
+      Pilnas adresas
+    %td
+  = link_to 'Add new address', new_address_path, class: 'btn btn-success btn-sm'
+  - @addresses.each do |address|
+    %tr
+      %td
+        = address.name
+      %td
+        = address.phone
+      %td
+        = address.email
+      %td
+        = address.full_address
+      %td
+        = link_to 'Peržiūrėti', address_path(address)
+        = link_to 'Redaguoti', edit_address_path(address)
+        = link_to 'Delete', address_path(address), method: :delete, data: { confirm: 'Are you sure?', disable_with: 'Loading...' }
+      

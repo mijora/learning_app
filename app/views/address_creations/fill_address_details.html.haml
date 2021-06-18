@@ -1,0 +1,8 @@
+= simple_form_for @address, url: wizard_path, method: :put do |f|
+  = f.input :name
+  = f.input :street
+  = f.input :post_code
+
+  = @address.country.title
+
+  = f.submit 'Save', class: 'btn btn-success btn-sm'

@@ -26,6 +26,8 @@ gem 'simple_form'
 
 gem 'ransack'
 
+gem 'wicked'
+
 gem 'devise'
 
 gem 'acts_as_paranoid', '~> 0.7.0'
